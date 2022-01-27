@@ -1,8 +1,10 @@
 import React from "react";
+import "../styles/Studies.css";
 
 export default function Studies() {
   return (
-    <div>
+    <div className="school">
+      <h2>Studies</h2>
       <form>
         <label htmlFor="schoolName">
           School Name:

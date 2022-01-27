@@ -1,8 +1,10 @@
 import React from "react";
+import "../styles/Jobs.css";
 
 export default function Jobs() {
   return (
-    <div>
+    <div className="jobs">
+      <h2>Jobs</h2>
       <form>
         <label htmlFor="companyName">
           Company Name:

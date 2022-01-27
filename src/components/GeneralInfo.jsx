@@ -1,8 +1,10 @@
 import React from "react";
+import "../styles/GeneralInfo.css";
 
 export default function GeneralInfo() {
   return (
-    <div>
+    <div className="general">
+      <h2>General Info</h2>
       <form>
         <label htmlFor="name">
           Name:
@@ -10,11 +12,11 @@ export default function GeneralInfo() {
         </label>
         <label htmlFor="email">
           Email:
-          <input type="text" name="email" id="email" required />
+          <input type="email" name="email" id="email" required />
         </label>
         <label htmlFor="phone">
           Phone Number:
-          <input type="text" name="phone" id="phone" required />
+          <input type="tel" name="phone" id="phone" required />
         </label>
         <button type="submit">Submit</button>
       </form>
