@@ -1,3 +1,10 @@
+.App{
+
+  box-sizing: border-box;
+  width: 45ch;
+  margin: auto;
+}
+
 .App h1 {
   text-align: center;
 }

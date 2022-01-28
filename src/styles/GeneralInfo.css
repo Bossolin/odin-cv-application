@@ -4,6 +4,7 @@
  justify-content: center;
  align-items: center;
  flex-direction: column;
+ position: relative;
 }
 
 .general h2 {
@@ -20,4 +21,11 @@
 .general form label{
   display: flex;
   flex-direction: column;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+
 }
