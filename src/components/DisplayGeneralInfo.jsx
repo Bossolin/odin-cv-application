@@ -18,6 +18,7 @@ class DisplayGeneralInfo extends Component {
           onClick={() => onEdit("general")}
         />
         <h3>Name: {info.name}</h3>
+        <h3>Surname: {info.lastName}</h3>
         <h3>Email: {info.email}</h3>
         <h3>Phone Number: {info.phone}</h3>
       </div>

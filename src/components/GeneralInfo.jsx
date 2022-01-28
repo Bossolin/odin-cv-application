@@ -11,6 +11,7 @@ class GeneralInfo extends Component {
 
     this.state = {
       name: info.name,
+      lastName: info.lastName,
       email: info.email,
       phone: info.phone,
     };
@@ -38,7 +39,7 @@ class GeneralInfo extends Component {
   }
 
   render() {
-    const { name, email, phone } = this.state;
+    const { name, lastName, email, phone } = this.state;
 
     return (
       <div className="general">
@@ -52,6 +53,17 @@ class GeneralInfo extends Component {
               id="name"
               required
               value={name}
+              onChange={this.onChange}
+            />
+          </label>
+          <label htmlFor="lastName">
+            Surname:
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              required
+              value={lastName}
               onChange={this.onChange}
             />
           </label>

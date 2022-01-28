@@ -13,7 +13,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      general: { name: "", email: "", phone: "", isEditable: true },
+      general: {
+        name: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        isEditable: true,
+      },
       studies: {
         schoolName: "",
         titleOfStudy: "",
@@ -76,6 +82,9 @@ class App extends Component {
         ) : (
           <DisplayJobs info={jobs} onEdit={this.onEdit} />
         )}
+        <button type="button" className="print-btn" onClick={window.print}>
+          Print
+        </button>
       </div>
     );
   }
