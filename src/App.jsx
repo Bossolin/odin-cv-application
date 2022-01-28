@@ -1,6 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from "react";
 import DisplayGeneralInfo from "./components/DisplayGeneralInfo";
+import DisplayJobs from "./components/DisplayJobs";
+import DisplayStudies from "./components/DisplayStudies";
 import GeneralInfo from "./components/GeneralInfo";
 import Jobs from "./components/Jobs";
 import Studies from "./components/Studies";
@@ -12,8 +14,21 @@ class App extends Component {
 
     this.state = {
       general: { name: "", email: "", phone: "", isEditable: true },
-      studies: { isEditable: true },
-      jobs: { isEditable: true },
+      studies: {
+        schoolName: "",
+        titleOfStudy: "",
+        studyStart: "",
+        studyEnd: "",
+        isEditable: true,
+      },
+      jobs: {
+        companyName: "",
+        position: "",
+        mainTasks: "",
+        jobStart: "",
+        jobEnd: "",
+        isEditable: true,
+      },
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -51,8 +66,16 @@ class App extends Component {
         ) : (
           <DisplayGeneralInfo info={general} onEdit={this.onEdit} />
         )}
-        {studies.isEditable ? <Studies onSubmit={this.onSubmit} /> : ""}
-        {jobs.isEditable ? <Jobs onSubmit={this.onSubmit} /> : ""}
+        {studies.isEditable ? (
+          <Studies onSubmit={this.onSubmit} info={studies} />
+        ) : (
+          <DisplayStudies info={studies} onEdit={this.onEdit} />
+        )}
+        {jobs.isEditable ? (
+          <Jobs onSubmit={this.onSubmit} info={jobs} />
+        ) : (
+          <DisplayJobs info={jobs} onEdit={this.onEdit} />
+        )}
       </div>
     );
   }
