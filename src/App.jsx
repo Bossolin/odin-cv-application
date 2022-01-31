@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from "react";
+import uniqid from "uniqid";
 import DisplayGeneralInfo from "./components/DisplayGeneralInfo";
 import DisplayJobs from "./components/DisplayJobs";
 import DisplayStudies from "./components/DisplayStudies";
@@ -26,6 +27,7 @@ class App extends Component {
         studyStart: "",
         studyEnd: "",
         isEditable: true,
+        itemList: [],
       },
       jobs: {
         companyName: "",
@@ -34,25 +36,32 @@ class App extends Component {
         jobStart: "",
         jobEnd: "",
         isEditable: true,
+        itemList: [],
       },
     };
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onEdit = this.onEdit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
-  onSubmit(partialState, area) {
+  handleSubmit(partialState, area) {
     this.setState((prevState) => {
       const newState = prevState;
 
-      newState[area] = { ...newState[area], ...partialState };
+      if (newState[area].itemList) {
+        const newItem = partialState;
+        newItem.id = uniqid();
+
+        newState[area].itemList = [...newState[area].itemList, newItem];
+      }
+
       newState[area].isEditable = false;
 
       return newState;
     });
   }
 
-  onEdit(area) {
+  handleEdit(area) {
     this.setState((prevState) => {
       const newState = prevState;
 
@@ -68,19 +77,23 @@ class App extends Component {
       <div className="App">
         <h1>CV Application</h1>
         {general.isEditable ? (
-          <GeneralInfo onSubmit={this.onSubmit} info={general} />
+          <GeneralInfo onSubmit={this.handleSubmit} info={general} />
         ) : (
-          <DisplayGeneralInfo info={general} onEdit={this.onEdit} />
+          <DisplayGeneralInfo info={general} onEdit={this.handleEdit} />
         )}
-        {studies.isEditable ? (
-          <Studies onSubmit={this.onSubmit} info={studies} />
-        ) : (
-          <DisplayStudies info={studies} onEdit={this.onEdit} />
+        {studies.isEditable && (
+          <Studies onSubmit={this.handleSubmit} info={studies} />
         )}
+        {studies.itemList.map((li) => (
+          <DisplayStudies
+            info={li}
+            /* onEdit={this.handleEdit} */ key={li.id}
+          />
+        ))}
         {jobs.isEditable ? (
-          <Jobs onSubmit={this.onSubmit} info={jobs} />
+          <Jobs onSubmit={this.handleSubmit} info={jobs} />
         ) : (
-          <DisplayJobs info={jobs} onEdit={this.onEdit} />
+          <DisplayJobs info={jobs} onEdit={this.handleEdit} />
         )}
         <button type="button" className="print-btn" onClick={window.print}>
           Print
