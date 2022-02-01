@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/odin-cv-application/static/css/main.ff03072f.css",
+    "main.js": "/odin-cv-application/static/js/main.b411b6a1.js",
+    "index.html": "/odin-cv-application/index.html",
+    "main.ff03072f.css.map": "/odin-cv-application/static/css/main.ff03072f.css.map",
+    "main.b411b6a1.js.map": "/odin-cv-application/static/js/main.b411b6a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff03072f.css",
+    "static/js/main.b411b6a1.js"
+  ]
+}
