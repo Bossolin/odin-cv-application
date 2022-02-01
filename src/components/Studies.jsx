@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from "react";
-import "../styles/Studies.css";
 
 class Studies extends Component {
   constructor(props) {
@@ -32,7 +31,7 @@ class Studies extends Component {
     } = this.props;
 
     return (
-      <div className="school">
+      <div className="general">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="schoolName">
             School Name:

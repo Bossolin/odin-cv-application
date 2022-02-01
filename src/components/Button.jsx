@@ -7,9 +7,9 @@ export default class Button extends React.Component {
   render() {
     const { onClick, area } = this.props;
     return (
-      <div>
+      <div className="add-btn">
         <button type="button" onClick={() => onClick(area)}>
-          hello
+          Add {area}
         </button>
       </div>
     );

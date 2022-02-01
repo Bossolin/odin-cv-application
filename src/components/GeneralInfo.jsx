@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable class-methods-use-this */
 import React, { Component } from "react";
-import "../styles/GeneralInfo.css";
 
 class GeneralInfo extends Component {
   constructor(props) {

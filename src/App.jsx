@@ -127,6 +127,7 @@ class App extends Component {
         {studies.itemList.map((li) => (
           <DisplayStudies info={li} onClick={this.handleDelete} key={li.id} />
         ))}
+        <h2>Jobs Info</h2>
         {jobs.isEditable ? (
           <Jobs
             onSubmit={this.handleSubmit}
@@ -134,14 +135,16 @@ class App extends Component {
             onChange={this.handleChange}
           />
         ) : (
-          <Button onClick={this.handleEdit} area="jobs" />
+          <Button className="add-btn" onClick={this.handleEdit} area="jobs" />
         )}
         {jobs.itemList.map((li) => (
           <DisplayJobs info={li} onClick={this.handleDelete} key={li.id} />
         ))}
-        <button type="button" className="print-btn" onClick={window.print}>
-          Print
-        </button>
+        <div className="print-btn">
+          <button type="button" onClick={window.print}>
+            Print
+          </button>
+        </div>
       </div>
     );
   }

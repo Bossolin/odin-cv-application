@@ -16,10 +16,10 @@ class DisplayStudies extends Component {
           className="edit-icon"
           onClick={() => onClick(info.id, "studies")}
         />
-        <h3>School Name: {info.schoolName}</h3>
-        <h3>Title of study: {info.titleOfStudy}</h3>
-        <h3>Study Start: {info.studyStart}</h3>
-        <h3>Study End: {info.studyEnd}</h3>
+        <h3>School Name:</h3> {info.schoolName}
+        <h3>Title of study:</h3> {info.titleOfStudy}
+        <h3>Study Start:</h3> {info.studyStart}
+        <h3>Study End:</h3> {info.studyEnd}
       </div>
     );
   }

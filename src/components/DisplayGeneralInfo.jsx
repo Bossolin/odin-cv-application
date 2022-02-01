@@ -16,10 +16,18 @@ class DisplayGeneralInfo extends Component {
           className="edit-icon"
           onClick={() => onEdit("general")}
         />
-        <h3>Name: {info.desc.name}</h3>
-        <h3>Surname: {info.desc.lastName}</h3>
-        <h3>Email: {info.desc.email}</h3>
-        <h3>Phone Number: {info.desc.phone}</h3>
+        <div>
+          <h3>Name:</h3> {info.desc.name}
+        </div>
+        <div>
+          <h3>Surname:</h3> {info.desc.lastName}
+        </div>
+        <div>
+          <h3>Email:</h3> {info.desc.email}
+        </div>
+        <div>
+          <h3>Phone Number:</h3> {info.desc.phone}
+        </div>
       </div>
     );
   }

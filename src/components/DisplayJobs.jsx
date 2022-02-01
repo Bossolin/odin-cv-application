@@ -11,17 +11,16 @@ class DisplayJobs extends Component {
 
     return (
       <div className="general">
-        <h2>Jobs Info</h2>
         <FontAwesomeIcon
           icon={faTrash}
           className="edit-icon"
           onClick={() => onClick(info.id, "jobs")}
         />
-        <h3>Company Name: {info.companyName}</h3>
-        <h3>Position: {info.position}</h3>
-        <h3>Main Tasks: {info.mainTasks}</h3>
-        <h3>Job Start: {info.jobStart}</h3>
-        <h3>Job End: {info.jobEnd}</h3>
+        <h3>Company Name:</h3> {info.companyName}
+        <h3>Position:</h3> {info.position}
+        <h3>Main Tasks:</h3> {info.mainTasks}
+        <h3>Job Start:</h3> {info.jobStart}
+        <h3>Job End:</h3> {info.jobEnd}
       </div>
     );
   }
