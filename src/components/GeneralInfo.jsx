@@ -7,15 +7,6 @@ class GeneralInfo extends Component {
   constructor(props) {
     super(props);
 
-    const { info } = this.props;
-
-    this.state = {
-      name: info.name,
-      lastName: info.lastName,
-      email: info.email,
-      phone: info.phone,
-    };
-
     this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,27 +14,25 @@ class GeneralInfo extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { onSubmit } = this.props;
-    const general = this.state;
 
-    onSubmit(general, "general");
+    onSubmit("general");
   }
 
   onChange(e) {
-    this.setState((prevState) => {
-      const newState = prevState;
+    const { onChange } = this.props;
 
-      newState[e.target.name] = e.target.value;
-
-      return newState;
-    });
+    onChange(e, "general");
   }
 
   render() {
-    const { name, lastName, email, phone } = this.state;
+    const {
+      info: {
+        desc: { name, lastName, email, phone },
+      },
+    } = this.props;
 
     return (
       <div className="general">
-        <h2>General Info</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">
             Name:

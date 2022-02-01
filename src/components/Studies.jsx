@@ -7,15 +7,6 @@ class Studies extends Component {
   constructor(props) {
     super(props);
 
-    const { info } = this.props;
-
-    this.state = {
-      schoolName: info.schoolName,
-      titleOfStudy: info.titleOfStudy,
-      studyStart: info.studyStart,
-      studyEnd: info.studyEnd,
-    };
-
     this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,26 +14,25 @@ class Studies extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { onSubmit } = this.props;
-    const studies = this.state;
 
-    onSubmit(studies, "studies");
+    onSubmit("studies");
   }
 
   onChange(e) {
-    this.setState((prevState) => {
-      const newState = prevState;
+    const { onChange } = this.props;
 
-      newState[e.target.name] = e.target.value;
-
-      return newState;
-    });
+    onChange(e, "studies");
   }
 
   render() {
-    const { schoolName, titleOfStudy, studyStart, studyEnd } = this.state;
+    const {
+      info: {
+        desc: { schoolName, titleOfStudy, studyStart, studyEnd },
+      },
+    } = this.props;
+
     return (
       <div className="school">
-        <h2>Studies</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="schoolName">
             School Name:

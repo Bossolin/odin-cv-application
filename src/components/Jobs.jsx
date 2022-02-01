@@ -7,16 +7,6 @@ class Jobs extends Component {
   constructor(props) {
     super(props);
 
-    const { info } = this.props;
-
-    this.state = {
-      companyName: info.companyName,
-      position: info.position,
-      mainTasks: info.mainTasks,
-      jobStart: info.jobStart,
-      jobEnd: info.jobEnd,
-    };
-
     this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,23 +14,22 @@ class Jobs extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { onSubmit } = this.props;
-    const jobs = this.state;
 
-    onSubmit(jobs, "jobs");
+    onSubmit("jobs");
   }
 
   onChange(e) {
-    this.setState((prevState) => {
-      const newState = prevState;
+    const { onChange } = this.props;
 
-      newState[e.target.name] = e.target.value;
-
-      return newState;
-    });
+    onChange(e, "jobs");
   }
 
   render() {
-    const { companyName, position, mainTasks, jobStart, jobEnd } = this.state;
+    const {
+      info: {
+        desc: { companyName, position, mainTasks, jobStart, jobEnd },
+      },
+    } = this.props;
 
     return (
       <div className="jobs">

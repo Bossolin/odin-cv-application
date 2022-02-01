@@ -11,16 +11,15 @@ class DisplayGeneralInfo extends Component {
 
     return (
       <div className="general">
-        <h2>General Info</h2>
         <FontAwesomeIcon
           icon={faEdit}
           className="edit-icon"
           onClick={() => onEdit("general")}
         />
-        <h3>Name: {info.name}</h3>
-        <h3>Surname: {info.lastName}</h3>
-        <h3>Email: {info.email}</h3>
-        <h3>Phone Number: {info.phone}</h3>
+        <h3>Name: {info.desc.name}</h3>
+        <h3>Surname: {info.desc.lastName}</h3>
+        <h3>Email: {info.desc.email}</h3>
+        <h3>Phone Number: {info.desc.phone}</h3>
       </div>
     );
   }

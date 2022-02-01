@@ -3,19 +3,18 @@
 
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 class DisplayStudies extends Component {
   render() {
-    const { info, onEdit } = this.props;
+    const { info, onClick } = this.props;
 
     return (
       <div className="general">
-        <h2>Studies Info</h2>
         <FontAwesomeIcon
-          icon={faEdit}
+          icon={faTrash}
           className="edit-icon"
-          onClick={() => onEdit("studies")}
+          onClick={() => onClick(info.id, "studies")}
         />
         <h3>School Name: {info.schoolName}</h3>
         <h3>Title of study: {info.titleOfStudy}</h3>
